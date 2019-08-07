@@ -1,3 +1,6 @@
+// Change the pin numbers according to your needs //
+// Coded by M3NI, www.m3ni.ir m3ni021@gmail.com //
+// feel free to edit anything you want :D //
 #include <SPI.h> 
 #include <Ethernet.h>
 #include <Wire.h>
