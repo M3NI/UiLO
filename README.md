@@ -2,7 +2,7 @@
 UNINTEGRATED LIGHTS OUT (UiLO)
 
 Just like HP's Integrated lights out,
-but with a few options. ;)
+but with less options.
 
 
 --------------------------------------
@@ -11,7 +11,7 @@ but with a few options. ;)
 2- Relays
 3- Ethernet Shield
 --------------------------------------
-Be careful if you're going to connect high voltage trough the relays,
-The best option is to put all the dangerous stuff in a box.
+Safety Warning:
+Be careful if you're going to connect high voltage through the relays.
 
 Peace.
