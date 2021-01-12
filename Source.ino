@@ -1,19 +1,19 @@
 // Change the pin numbers according to your needs //
-// Coded by M3NI, www.m3ni.ir m3ni021@gmail.com //
-// feel free to edit anything you want :D //
+// Coded by Morsine //
+// feel free to edit anything you want //
 #include <SPI.h> 
 #include <Ethernet.h>
 #include <Wire.h>
 #include <OneWire.h> 
-#include <DallasTemperature.h>
+// #include <DallasTemperature.h>
 #define ONE_WIRE_BUS 2 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //physical mac address 
 byte ip[] = { 192, 168, 88, 99 }; // IP address in LAN – need to change according to your Network address 
 byte gateway[] = { 192, 168, 88, 1 }; // internet access via router 
 byte subnet[] = { 255, 255, 255, 0 }; //subnet mask 
-EthernetServer server(80); //server port
+EthernetServer server(80); //server port. 80 is default.
 String readString; 
-int R2811 = 9;
+int R2811 = 9; //change pin number and name according to your needs
 int acnbackfan = 8;
 int frontfan = 7;
 int lights = 6;
@@ -82,8 +82,8 @@ void loop(){
                     client.println("<br>");
 
             
-                    client.println("<H2><a href=\"/?2811ON\"\">Turn On 2811 Router</a><br></H2>"); 
-                    client.println("<H2><a href=\"/?2811OFF\"\">Turn Off 2811 Router</a><br></H2>");
+                    client.println("<H2><a href=\"/?2811ON\"\">Turn On R2811</a><br></H2>"); 
+                    client.println("<H2><a href=\"/?2811OFF\"\">Turn Off R2811</a><br></H2>");
 
                     client.println("</BODY>"); 
                     client.println("</HTML>");
