@@ -6,8 +6,8 @@
 #include <Wire.h>
 #define ONE_WIRE_BUS 2 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //physical mac address 
-byte ip[] = { 192, 168, 1, 90 }; // IP address in LAN – need to change according to your Network address 
-byte gateway[] = { 192, 168, 1, 1 }; // internet access via router 
+byte ip[] = { 192, 168, 33, 90 }; // IP address in LAN – need to change according to your Network address 
+byte gateway[] = { 192, 168, 33, 1 }; // internet access via router 
 byte subnet[] = { 255, 255, 255, 0 }; //subnet mask 
 EthernetServer server(80); //server port. 80 is default.
 String readString; 
@@ -17,8 +17,8 @@ int R2 = 6;
 void setup(){
      pinMode(R1, OUTPUT);
      pinMode(R2, OUTPUT);
-     digitalWrite(R1, HIGH);
-     digitalWrite(R2, HIGH);
+     digitalWrite(R1, LOW);
+     digitalWrite(R2, LOW);
      Ethernet.begin(mac, ip, gateway, subnet); 
      server.begin(); 
 
@@ -48,13 +48,13 @@ void loop(){
 
                     client.println("<HTML>"); 
                     client.println("<HEAD>"); 
-                    client.println("<TITLE>UiLO</TITLE>"); 
+                    client.println("<TITLE>PMS v2</TITLE>"); 
                     client.println("</HEAD>"); 
                     client.println("<BODY>"); 
                     client.println("<hr>"); 
                     client.println("<hr>"); 
                     client.println("<br>"); 
-                    client.println("<H1 style=\"color:green;\">PMS-v2</H1>"); 
+                    client.println("<H1 style=\"color:red;\">PMS-v2</H1>"); 
                     client.println("<hr>"); 
                     client.println("<br>");
 
@@ -73,19 +73,19 @@ void loop(){
                     // control arduino pin 
                     if(readString.indexOf("?R1ON") > -1) //checks for LEDON 
                     { 
-                        digitalWrite(R1, LOW); // set pin low 
+                        digitalWrite(R1, HIGH); // set pin low 
                     } 
                     if(readString.indexOf("?R1OFF") > -1) //checks for LEDOFF 
                     { 
-                        digitalWrite(R1, HIGH); // set pin high 
+                        digitalWrite(R1, LOW); // set pin high 
                     } 
                     if(readString.indexOf("?R2ON") > -1) //checks for LEDON 
                     { 
-                        digitalWrite(R2, LOW); // set pin low 
+                        digitalWrite(R2, HIGH); // set pin low 
                     } 
                     if(readString.indexOf("?R2OFF") > -1) //checks for LEDOFF 
                     { 
-                        digitalWrite(R2, HIGH); // set pin high 
+                        digitalWrite(R2, LOW); // set pin high 
                     }
                     //clearing string for next read 
                     readString="";
